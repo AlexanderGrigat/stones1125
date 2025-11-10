@@ -1,6 +1,7 @@
+import { Product } from './product-model';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { ProductComponent } from './product';
+import { By } from '@angular/platform-browser';
 
 describe('Product', () => {
   let component: ProductComponent;
@@ -14,6 +15,7 @@ describe('Product', () => {
 
     fixture = TestBed.createComponent(ProductComponent);
     component = fixture.componentInstance;
+    component.product = new Product(12,'SuperStein', 1, 1);
     fixture.detectChanges();
   });
 
@@ -21,6 +23,11 @@ describe('Product', () => {
     expect(component).toBeTruthy();
   });
 
+   it('should correctly show name in DOM', () => {
+    const liName = fixture.debugElement.query(By.css('#name'));
+    expect(liName.nativeElement.textContent).toContain(component.product.name);
+  });
+  
   it('raisePrice should raise price by 5', () => {
     const oldPrice = component.product.price;
     component.increasePrice();
