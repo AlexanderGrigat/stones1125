@@ -8,13 +8,24 @@ import { Product } from './product-model';
   styleUrl: './product.css',
 })
 export class ProductComponent {
-  // @Input ({ required: true}) product!: Product;
+  styleConfig: any = {
+    borderStyle: 'dashed',
+  }
   product = input.required<Product>();
-  // @Output() priceChange = new EventEmitter<number>();
   priceChange = output<number>();
+  showPrice = true;
 
   increasePrice(): void {
     this.product().price += 5;
     this.priceChange.emit(this.product().price);
+  }
+
+  changePrice(price: number){
+    this.product().price = price;
+    this.priceChange.emit(this.product().price);
+  }
+
+  togglePrice(){
+    this.showPrice = !this.showPrice;
   }
 }
