@@ -4,10 +4,13 @@
     [ngClass]="{'border-green' : product().price < 50}"
 >
     <ul>
-        <li> ID: {{product().id}}</li>
+        <li> ID: {{product().id+1}}</li>
         <li id="name"> Name: {{product().name}}</li>
         @if(showPrice){
-        <li> <strong>Preis: </strong>{{product().price}}</li>
+        <li> <strong>Preis: </strong>{{product().price | currency: '€'}}</li>
+        <li> <strong>Preis Netto 19%: </strong>{{product().price | netto | currency: '€'}}</li>
+        <li> <strong>Preis Netto 7%: </strong>{{product().price | netto:7 | currency: '€'}}</li>
+        <li> <strong>Preis Brutto 7%: </strong>{{product().price | netto:7: 'brutto' | currency: '€'}}</li>
         }
         <li> Gewicht: {{product().weight}}</li>
     </ul>
