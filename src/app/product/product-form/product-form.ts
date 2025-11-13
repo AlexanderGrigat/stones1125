@@ -9,7 +9,7 @@ import { CustomValidators } from '../../utils/validators/custom-validators';
   templateUrl: './product-form.html',
   styleUrl: './product-form.css',
 })
-export class ProductForm {
+export class ProductFormComponent {
 readonly saveProduct = output<Product>();
   // productForm = new FormGroup({
     // name: new FormControl('', [Validators.required, CustomValidators.alphaNum]),
