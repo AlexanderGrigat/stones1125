@@ -6,6 +6,7 @@ import { ProductListComponent } from './product-list';
 import { ProductComponent } from '../product';
 import { provideRouter, RouterModule } from '@angular/router';
 import { UtilsModule } from '../../utils/utils-module';
+import { MockProductService, ProductService } from '../../services/product';
 
 describe('ProductListComponent', () => {
   let component: ProductListComponent;
@@ -24,7 +25,7 @@ describe('ProductListComponent', () => {
         MatInputModule,
         RouterModule,
       ],
-      providers:[provideRouter([])]
+      providers:[{provide: ProductService, useClass: MockProductService},provideRouter([])]
     })
     .compileComponents();
 
@@ -35,5 +36,9 @@ describe('ProductListComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should correctly read product list', () => {
+    expect(component.products[0].id).toBe(-1);
   });
 });

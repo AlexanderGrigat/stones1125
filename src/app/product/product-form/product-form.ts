@@ -3,6 +3,7 @@ import { Product } from '../product-model';
 import { FormBuilder, Validators } from '@angular/forms';
 import { CustomValidators } from '../../utils/validators/custom-validators';
 import { ActivatedRoute } from '@angular/router';
+import { ProductService } from '../../services/product';
 
 @Component({
   selector: 'stn-product-form',
@@ -14,6 +15,7 @@ export class ProductFormComponent {
   readonly saveProduct = output<Product>();
   private readonly fb = inject(FormBuilder);
   private readonly route = inject(ActivatedRoute);
+  private readonly productService = inject(ProductService)
   id = -1;
   // productForm = new FormGroup({
     // name: new FormControl('', [Validators.required, CustomValidators.alphaNum]),
