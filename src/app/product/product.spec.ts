@@ -5,6 +5,7 @@ import { By } from '@angular/platform-browser';
 import { UtilsModule } from '../utils/utils-module';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { ReactiveFormsModule } from '@angular/forms';
 
 describe('Product', () => {
   let component: ProductComponent;
@@ -12,11 +13,14 @@ describe('Product', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ProductComponent],
+      declarations: [
+        ProductComponent
+      ],
       imports: [ 
         UtilsModule,
         MatInputModule,
         MatFormFieldModule,
+        ReactiveFormsModule,
       ]
     })
     .compileComponents();
