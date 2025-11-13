@@ -4,6 +4,7 @@ import { ProductFormComponent } from './product-form';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { ReactiveFormsModule } from '@angular/forms';
+import { provideRouter } from '@angular/router';
 
 describe('ProductForm', () => {
   let component: ProductFormComponent;
@@ -17,6 +18,7 @@ describe('ProductForm', () => {
           MatFormFieldModule,
           MatInputModule,
       ],
+      providers:[provideRouter([])]
     })
     .compileComponents();
 

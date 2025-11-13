@@ -2,17 +2,19 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ProductFormComponent } from './product-form/product-form';
 import { ProductListComponent } from './product-list/product-list';
+import { hasSavedGuard } from '../utils/guards/has-saved';
 
 const routes: Routes = [{
   path: 'products',
   children: [
     {path: '', component: ProductListComponent},
-    {path: 'new', component: ProductFormComponent},
+    {path: 'new', component: ProductFormComponent, canDeactivate: [hasSavedGuard]},
+    {path: 'new/:id', component: ProductFormComponent, canDeactivate: [hasSavedGuard]},
   ]
 }];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
 export class ProductRoutingModule { }
