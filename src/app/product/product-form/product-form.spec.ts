@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { ProductFormComponent } from './product-form';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -13,11 +12,11 @@ describe('ProductForm', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ProductFormComponent],
       imports: [
-          ReactiveFormsModule,
-          MatFormFieldModule,
-          MatInputModule,
+        MatInputModule,
+        MatFormFieldModule,
+        ReactiveFormsModule,
+        ProductFormComponent,
       ],
        providers:[
         provideRouter([]),

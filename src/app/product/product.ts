@@ -1,11 +1,22 @@
 import { Component, EventEmitter, input, output, Output } from '@angular/core';
 import { Product } from './product-model';
+import { CommonModule } from '@angular/common';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatButtonModule } from '@angular/material/button';
+import { NettoPipe } from '../utils/netto-pipe';
+import { MatInputModule } from '@angular/material/input';
 
 @Component({
   selector: 'stn-product',
-  standalone: false,
   templateUrl: './product.html',
   styleUrl: './product.css',
+  imports:[
+    CommonModule,
+    MatFormFieldModule,
+    MatButtonModule,
+    MatInputModule,
+    NettoPipe,
+  ],
 })
 export class ProductComponent {
   styleConfig: any = {

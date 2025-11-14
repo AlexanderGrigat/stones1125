@@ -2,10 +2,11 @@ import { Product } from './product-model';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ProductComponent } from './product';
 import { By } from '@angular/platform-browser';
-import { UtilsModule } from '../utils/utils-module';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { ReactiveFormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+import { MatButtonModule } from '@angular/material/button';
+import { NettoPipe } from '../utils/netto-pipe';
 
 describe('Product', () => {
   let component: ProductComponent;
@@ -13,14 +14,13 @@ describe('Product', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [
-        ProductComponent
-      ],
       imports: [ 
-        UtilsModule,
-        MatInputModule,
+        CommonModule,
         MatFormFieldModule,
-        ReactiveFormsModule,
+        MatButtonModule,
+        MatInputModule,
+        NettoPipe,
+        ProductComponent,
       ]
     })
     .compileComponents();

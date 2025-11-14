@@ -7,7 +7,7 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class ProductService {
-   private readonly http = inject(HttpClient);
+  private readonly http = inject(HttpClient);
   private readonly api = 'https://stone-server-4ijz.onrender.com/products'
   // private products: Product[]  =[
    //   {
