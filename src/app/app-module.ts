@@ -6,6 +6,7 @@ import { App } from './app';
 import { ProductModule } from './product/product-module';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatCardModule } from '@angular/material/card';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { MatCardModule } from '@angular/material/card';
     ProductModule,
     MatToolbarModule,
     MatCardModule,
+    HttpClientModule,
   ],
   providers: [
     provideBrowserGlobalErrorListeners()
